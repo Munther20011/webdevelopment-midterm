@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University Management</title>
+  <link rel="stylesheet" href="cssFile.css">
+
+</head>
+
+<body>
+  <header>
+    <h1>Student Information System</h1>
+    <img src="university.png" alt=""><!-- Button to toggle menu -->
+    <div>
+      <p><strong>Click the menu button to see options</strong></p>
+
+      <button id="menu-toggle" class="menu-button">☰ Menu</button>
+
+    </div>
+    <div class="container">
+
+      <!-- Main Container -->
+      <div class="container">
+        <!-- Collapsible Menu -->
+        <aside class="menu" id="menu">
+          <div class="menu-item" id="list_cours">List Course</div>
+          <div class="menu-item" id="list_details">List Course Details</div>
+          <div class="menu-item" id="list_student">List Student</div>
+          <div class="menu-item" id="add_cours">Add Course</div>
+          <div class="menu-item" id="add_student">Add Student</div>
+          <div class="menu-item" id="student_avarge">Student Average</div>
+        </aside>
+
+        <!-- Content Area -->
+        <main class="content" id="content-area">
+          <div id="form_student" class="form d-none">
+            <form id="frmStudent">
+              <div>
+                <label for="idStudent">ID Student</label>
+                <input type="text" id="idStudent" name="idStudent" disabled>
+              </div>
+              <div>
+                <label for="name">name</label>
+                <input type="text" id="name" name="name" value="">
+              </div>
+              <div>
+                <label for="surname">surname</label>
+                <input type="text" id="surname" name="surname" value="">
+              </div>
+              <div>
+                <label for="Cours">Cours</label>
+                <select name="Cours" id="Cours">
+                  <option value="654" selected>Math</option>
+                  <option value="63">pc</option>
+                </select>
+                <input type="text" class="d-none" id="cr">
+              </div>
+              <div>
+                <label for="midtermScore">midterm Score</label>
+                <input type="text" id="midtermScore" name="midtermScore" value="0">
+              </div>
+              <div>
+                <label for="finalScore">final Score</label>
+                <input type="text" id="finalScore" name="finalScore" value="0">
+              </div>
+              <div>
+                <label for="FinalGrade">Final Grade</label>
+                <input type="text" id="FinalGrade" name="FinalGrade" disabled value="0">
+              </div>
+              <div>
+                <input type="button" value="Add Student" id="add_std" class="btn_add">
+              </div>
+            </form>
+          </div>
+          <div id="form_cours" class="form d-none">
+            <form id="frmCours">
+              <div>
+                <label for="idCours">ID Cours</label>
+                <input type="text" id="idCours" name="idCours" disabled>
+              </div>
+              <div>
+                <label for="CoursName">Cours Name</label>
+                <input type="text" id="CoursName" name="CoursName">
+              </div>
+              <div>
+                <label for="gradingScale">Grading Scale</label>
+                <input type="text" id="gradingScale" name="gradingScale">
+              </div>
+              <div>
+                <input type="button" value="Add Cours" class="btn_add" id="add_cr">
+              </div>
+            </form>
+          </div>
+          <div id="form_CoursDetails" class="form d-none">
+            <form id="frmCoursDetails">
+              <div>
+                <label for="DCours">- Cours</label>
+                <select name="DCours" id="DCours">
+                </select>
+                <input type="text" class="d-none" id="cr">
+              </div>
+              <div>
+                <label for="passed"> - Number of passed students: </label>
+                <input type="text" id="passed" name="passed" disabled>
+              </div>
+
+              <div>
+                <label for="failed"> - Number of failed students :</label>
+                <input type="text" id="failed" name="failed" disabled>
+              </div>
+              <div>
+                <label for="Mscore"> - Mean score of the entire class:</label>
+                <input type="text" id="Mscore" name="Mscore" disabled>
+              </div>
+            </form>
+          </div>
+
+          <div id="table_cours" class="tb">
+            <table>
+              <thead>
+                <th>id Cours</th>
+                <th>Cours Name</th>
+                <th>grading Scale</th>
+                <th colspan="2">opertion</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1325</td>
+                  <td>math</td>
+                  <td>3</td>
+                  <td><input type="button" value="Update" class="update"></td>
+                  <td><input type="button" value="Delete" class="delete" onclick="deleteTableCours(12)"></td>
+                </tr>
+                <tr>
+                  <td>56984</td>
+                  <td>pc</td>
+                  <td>4</td>
+                  <td><input type="button" value="Update" class="update"></td>
+                  <td><input type="button" value="Delete" class="delete"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div id="table_student" class="tb d-none">
+            <div class="" style="margin-bottom: 10px;">
+              <label for="">search</label>
+              <input type="text" id="search" class="search" placeholder="Ex:Ali...">
+            </div>
+            <table>
+              <thead>
+                <th>id Student</th>
+                <th>Student Name</th>
+                <th>SurName</th>
+                <th>Cours</th>
+                <th>Midterm Score</th>
+                <th>final Score</th>
+                <th>Final Grade</th>
+                <th colspan="2">opertion</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1325</td>
+                  <td>Ahmed</td>
+                  <td>Azoz</td>
+                  <td>math</td>
+                  <td>75</td>
+                  <td>80</td>
+                  <td><input type="button" value="Update" class="update"></td>
+                  <td><input type="button" value="Delete" class="delete"></td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+          <div id="table_avg" class="tb d-none">
+            <table>
+              <thead>
+                <th>Student Name</th>
+                <th>SurName</th>
+                <th>GBA</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1325</td>
+                  <td>Ahmed</td>
+                  <td>Azoz</td>
+                  <td>80</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </main>
+      </div>
+
+      <script src="myjs.js"></script>
+</body>
+
+</html>
